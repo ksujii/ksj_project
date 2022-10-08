@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="layout/header.jspf"%>
+<%@include file="../layout/header.jspf"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,41 +36,7 @@ body {
 
 <h2><b>예약안내</b></h2>
 <hr>
-<!-- <table border="1" bordercolor="LightGray" width="750">
-<tr>
-   <th rowspan = "2">객실명</th>
-   <td rowspan = "2">성수기</td>
-   <td colspan = "2">비수기</td>
-   <td rowspan = "2"> 비고</td>
-   
-</tr>
-<tr>   
-   <td>금~토,공휴일</td>
-   <td>일~목요일</td>   
-</tr>
 
-<tr>
-   <th>ROOM1</th>
-   <td>140,000원</td>
-   <td>110,000원</td>
-   <td>70,000원</td>
-   <td>최대6명,바베큐도구 무료사용</td>
-</tr>
-<tr>
-   <th>ROOM2</th>
-   <td>160.000원</td>
-   <td>130,000원</td>
-   <td>110,000원</td>
-   <td>최대4명,바베큐도구 무료사용</td>
-</tr>
-<tr>
-   <th>ROOM3</th>
-   <td>160,000원</td>
-   <td>130,000원</td>
-   <td>110,000원</td>
-   <td>바베큐도구 무료사용</td>
-</tr>   
-</table> -->
 <hr>
 <div class="well" width="750"><p>
   - 기준인원 초과시 1인당 10,000원 요금이 추가됩니다.<p>
@@ -97,4 +63,4 @@ body {
 
 </body>
 </html>
-<%@include file="layout/footer.jspf"%>
+<%@include file="../layout/footer.jspf"%>

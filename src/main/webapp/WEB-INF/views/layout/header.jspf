@@ -80,7 +80,7 @@ footer {
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#">Preview<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">객실안내</a></li>
+							<li><a href="<c:url value='/room/list'/>">객실안내</a></li>
 							<li><a href="<c:url value='/preview02'/>">부대시설</a></li>
 						</ul>
 					</li>
@@ -88,8 +88,8 @@ footer {
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#">Reservation<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="<c:url value='/reservation01'/>">예약안내</a></li>
-							<li><a href="<c:url value='/reservation02'/>">예약하기</a></li>
+							<li><a href="<c:url value='/reserve/guide'/>">예약안내</a></li>
+							<li><a href="<c:url value='/reserve/form'/>">예약하기</a></li>
 						</ul>
 					</li>
 
@@ -104,7 +104,7 @@ footer {
 						data-toggle="dropdown" href="#">Community<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="<c:url value='/board/list'/>">공지사항</a></li>
-							<li><a href="#">이용후기</a></li>
+							<li><a href="<c:url value='/board/list?category=review'/>">이용후기</a></li>
 						</ul>
 					</li>
 
@@ -114,7 +114,7 @@ footer {
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="<c:url value='/newPreview'/>">객실등록</a></li>
+							<li><a href="<c:url value='/room/register'/>">객실등록</a></li>
 							<li><a href="<c:url value='/adNewPreview'/>">예약확인</a></li>
 						</ul>
 					</li>

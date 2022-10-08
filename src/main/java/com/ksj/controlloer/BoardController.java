@@ -45,7 +45,7 @@ public class BoardController {
 	public String register(BoardVO board, RedirectAttributes rttr) {
 		service.register(board);
 		rttr.addFlashAttribute("message", board.getBno());
-		return "redirect:list";
+		return "redirect:list?category="+board.getCategory();
 	}
 	
 	@GetMapping("/modify")

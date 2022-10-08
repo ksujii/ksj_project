@@ -16,8 +16,10 @@ hr {
 }
 </style>
 <hr>
+
 <div class="container">
 <form action="register" method="post" id="registerForm">
+<input type="hidden" name="category" value="${param.category}"></input>
 <table class="table table-striped table-bordered">
 	<tr>
 		<th>제목</th>                                     

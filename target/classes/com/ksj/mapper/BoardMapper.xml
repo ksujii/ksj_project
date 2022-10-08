@@ -3,10 +3,12 @@
 <mapper namespace="com.ksj.mapper.BoardMapper">
 	<sql id="search">
   	<where>
-  		<if test="category!=null and category!=''">
-  			category = #{category}
-  		</if>
-    	<trim prefixOverrides="OR">
+  		<trim suffixOverrides="AND">
+	  		<if test="category!=null and category!=''">
+	  			category = #{category} 
+	  		</if>
+  		</trim>
+    	<trim prefixOverrides="OR|AND" prefix="AND">
 	    	<foreach collection="typeCollection"> 
 	    		<trim prefix="OR">
 	    			<choose>

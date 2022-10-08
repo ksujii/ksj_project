@@ -26,9 +26,9 @@ hr {
 
 </style>
 <div class="container">
-
+	
 	<h2>
-		<b>공지사항</b>
+		<b class="board_name">공지사항</b>	
 	</h2>
 	<hr>
 	<form action="${contextPath}/board/list" id="listForm">
@@ -40,6 +40,7 @@ hr {
 				<option value="W" ${pageMarker.criteria.type eq 'W' ? 'selected':''}>작성자</option>
 			</select>
 			<input type="text" name="keyword" value="${pageMarker.criteria.keyword}">
+			<input type="hidden" name="category" value="${pageMarker.criteria.category}">
 			<button>검색</button>
 		</div>
 	</form>
@@ -52,17 +53,25 @@ hr {
 				<th>등록일</th>
 				<th>수정일</th>
 			</tr>
-			<c:forEach items="${list}" var="b">
+			<c:if test="${empty list}">
 				<tr>
-					<td>${b.bno }</td>
-					<td><a href="get?bno=${b.bno}"> ${b.title } </a></td>
-					<td>${b.writer }</td>
-					<td><fmt:formatDate value="${b.regDate}" pattern="yyyy-MM-dd" />
-					</td>
-					<td><fmt:formatDate value="${b.updateDate}"
-							pattern="yyyy-MM-dd" /></td>
+					<td colspan="5">데이터가 존재하지 않습니다.</td>
 				</tr>
-			</c:forEach>
+			</c:if>
+			<c:if test="${not empty list}">
+				<c:forEach items="${list}" var="b">
+				
+					<tr>
+						<td>${b.bno }</td>
+						<td><a href="get?bno=${b.bno}"> ${b.title } </a></td> 
+						<td>${b.writer }</td>
+						<td><fmt:formatDate value="${b.regDate}" pattern="yyyy-MM-dd" />
+						</td>
+						<td><fmt:formatDate value="${b.updateDate}"
+								pattern="yyyy-MM-dd" /></td>
+					</tr>
+				</c:forEach>
+			</c:if>
 		</table>
 		<div class="d-flex justify-content-end">
 			<button class="btn btn-primary register" style="float: right;">글쓰기</button>
@@ -81,11 +90,20 @@ hr {
 		</c:if>
 	</div>
 	<div class="listData">
-		<input type="hidden" name="page" id="page" value="${pageMaker.criteria.page}">
+		<input type="hidden" name="page" id="page" value="${pageMarker.criteria.page}">
+		
 	</div>
 <script>
 
  	$(function() {
+ 		let boardName=['공지사항','이용후기']; //배열
+ 		let category ="${pageMarker.criteria.category}"; 
+ 		if(category=='notice') {
+ 			$('.board_name').html(boardName[0])	//공지사항
+ 		}else if(category=='review'){
+ 			$('.board_name').html(boardName[1])	//이용후기
+ 		}
+ 		
 		let listForm = $("#listForm");
 	    $('.pagination a').on('click',function(e){
 			e.preventDefault();
@@ -97,6 +115,7 @@ hr {
 		 let getForm = $("#getForm");
 		$('#getForm .register').on('click', function() {
 			getForm.attr("action", "register");
+			getForm.append($('#category'));
 			getForm.submit();
 		}) 
 		

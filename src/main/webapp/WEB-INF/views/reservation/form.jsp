@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="layout/header.jspf"%>
+<%@include file="../layout/header.jspf"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,42 +37,46 @@ table {
 	            <tr>
 	                <th>객 실</th>
 	                <td>
-		                <input type="radio" name="room"> &nbsp; room1 &nbsp;&nbsp; &nbsp;&nbsp;
-		                <input type="radio" name="room"> &nbsp; room2 &nbsp;&nbsp; &nbsp;&nbsp;
-		                <input type="radio" name="room"> &nbsp; room3 &nbsp;&nbsp; &nbsp;&nbsp;
-		                <input type="radio" name="room"> &nbsp; room4 &nbsp;&nbsp; &nbsp;&nbsp;
+		                <select class="form-control" name="room" >
+		                <c:forEach items="${roomNames}" var="r">
+		                	<option value="${r.roomName}">${r.roomName}</option>
+		                	</c:forEach>
+		                </select>
 					</td>       
 	            </tr>
 	            
 	            <tr>
 	                <th>추가인원</th>
 	                <td>
-		                <input type="radio"  name="a" value="1">&nbsp;&nbsp; 1 &nbsp;&nbsp; &nbsp;&nbsp;
-		                <input type="radio"  name="a" value="2">&nbsp;&nbsp; 2 &nbsp;&nbsp; &nbsp;&nbsp;
-		                <input type="radio"  name="a" value="3">&nbsp;&nbsp; 3 &nbsp;&nbsp; &nbsp;&nbsp;
-		                <input type="radio"  name="a" value="4">&nbsp;&nbsp; 4 &nbsp;&nbsp; &nbsp;&nbsp;
+		                <select class="form-control">
+		                	<c:forEach begin="1" end="6" var="num"> 
+								<option>${num}</option>	                
+		                	</c:forEach>
+		                </select>
 					</td>       
 	            </tr>
 	            
 	            <tr>
 	                <th>바베큐</th>
 	                <td>
-		                <input type="radio"  name="b" value="o">&nbsp;&nbsp;o &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-		                <input type="radio"  name="b" value="x">&nbsp;&nbsp;x &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+	                 	<select class="form-control">
+							<option value="O">O</option>	                
+		                	<option value="X">X</option>
+		                </select>
 					</td>       
 	            </tr>
 	             
 	            <tr>
 	                <th>체크인</th>
 	                <td>
-	                	<input type="date" min="2022-10-01" max="2022-12-30">
+	                	<input type="date" min="2022-10-01" max="2022-12-30" class="form-control">
 	                </td>     
 	            </tr>
 	             
 	            <tr>
 	                <th>체크아웃</th>
 	                <td>
-	                	<input width="200px" height="100px" type="date" min="2022-10-01" max="2022-12-30">
+	                	<input type="date" min="2022-10-01" max="2022-12-30" class="form-control">
 	                </td>     
 	            </tr>                        
 	             
@@ -87,4 +91,4 @@ table {
 </div>
 </body>
 </html>
-<%@include file="layout/footer.jspf"%>
+<%@include file="../layout/footer.jspf"%>

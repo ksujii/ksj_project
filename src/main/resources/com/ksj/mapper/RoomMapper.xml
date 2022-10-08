@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ksj.mapper.RoomMapper">
+
+	<insert id="register">
+	  	insert into room_tbl(roomName, standardNum, maximumNum, roomArea, roomForm, roomType, remarks, facilities, weekDay, weekend)
+		values(#{roomName},
+			  #{standardNum},
+				#{maximumNum},
+				#{roomArea},
+				#{roomForm},
+				#{roomType},
+				#{remarks},
+				#{facilities},
+				#{weekDay},
+				#{weekend})
+    </insert>
+	<select id="list" resultType="com.ksj.model.RoomVO">
+		select * from room_tbl
+	</select>
+	<select id="getRoomNames" resultType="com.ksj.model.RoomVO">
+		select roomName from room_tbl
+	</select>
+</mapper>

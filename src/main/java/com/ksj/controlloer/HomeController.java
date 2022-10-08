@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 	
 	//@RequestMapping(value = "/main", method = RequestMethod.GET)
-	@GetMapping("/main")
+	@GetMapping("/")
 	public String home() {
 		return "home"; //view �̸�
 	}
@@ -40,15 +40,8 @@ public class HomeController {
 	public String priview02() {
 		return "preview02";
 	}
-	@GetMapping("/newPreview")
-	public String newPreview() {
-		return "newPreview";
-	}
-	
-	@GetMapping("/admin2")
-	public String admin2() {
-		return "admin2";
-	}
+
+	//예약확인
 	@GetMapping("/adNewPreview")
 	public String adNewPreview() {
 		return "adNewPreview";

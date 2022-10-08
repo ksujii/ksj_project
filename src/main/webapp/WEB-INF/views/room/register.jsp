@@ -44,7 +44,7 @@ body {
 	             
 	            <tr>
 	                <th>넓 이</th>
-	                <td><input type="number"  name="roomArea" min="200" max="1000"class="form-control"></td>        
+	                <td><input type="number"  name="roomArea" min="1" max="1000"class="form-control"></td>        
 	            </tr>
 	             
 	            <tr>

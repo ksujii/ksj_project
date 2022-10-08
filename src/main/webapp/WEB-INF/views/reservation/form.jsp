@@ -38,6 +38,7 @@ table {
 	                <th>객 실</th>
 	                <td>
 		                <select class="form-control" name="room" >
+		                <option>====선택하세요====</option>
 		                <c:forEach items="${roomNames}" var="r">
 		                	<option value="${r.roomName}">${r.roomName}</option>
 		                	</c:forEach>
@@ -49,7 +50,8 @@ table {
 	                <th>추가인원</th>
 	                <td>
 		                <select class="form-control">
-		                	<c:forEach begin="1" end="6" var="num"> 
+		                		<option>====선택하세요====</option>
+		                	<c:forEach begin="1" end="6" var="num"> 		                		
 								<option>${num}</option>	                
 		                	</c:forEach>
 		                </select>
@@ -60,6 +62,7 @@ table {
 	                <th>바베큐</th>
 	                <td>
 	                 	<select class="form-control">
+	                 	    <option>====선택하세요====</option>
 							<option value="O">O</option>	                
 		                	<option value="X">X</option>
 		                </select>

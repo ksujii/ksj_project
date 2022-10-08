@@ -47,7 +47,7 @@ footer {
 <body>
 		<div class="jumbotron">
 			<div class="container text-center">
-				<h1> <a href="<c:url value='/main'/>"  style="text-decoration:none">SWEVEN</a></h1>
+				<h1> <a href="<c:url value='/'/>"  style="text-decoration:none">SWEVEN</a></h1>
 				<p>a vision seen in sleep : a dream
 			</div>
 		</div>

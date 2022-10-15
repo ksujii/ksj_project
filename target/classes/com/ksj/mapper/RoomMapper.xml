@@ -21,4 +21,7 @@
 	<select id="getRoomNames" resultType="com.ksj.model.RoomVO">
 		select roomName from room_tbl
 	</select>
+	<select id="getRoom" resultType="com.ksj.model.RoomVO">
+		select roomName from room_tbl where rno=#{rno}
+	</select>
 </mapper>

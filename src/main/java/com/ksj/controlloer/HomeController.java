@@ -41,9 +41,5 @@ public class HomeController {
 		return "preview02";
 	}
 
-	//예약확인
-	@GetMapping("/adNewPreview")
-	public String adNewPreview() {
-		return "adNewPreview";
-	}
+
 }

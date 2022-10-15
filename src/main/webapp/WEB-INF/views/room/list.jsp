@@ -91,8 +91,9 @@ div{
                   </table>
 		      				</div>
 		      				<hr>
-		      					<button class="btn btn-primary">예약하기</button>
-		      				
+		      					<button class="btn btn-primary reserve">예약하기</button>
+		      					<input type="hidden" name="rno" value="${room.rno}">
+		      					
 	      				</div>      					
       				</div>      			
       			</div>
@@ -100,7 +101,20 @@ div{
       	</c:forEach>
     </div>	
 	</div> 
-		      				
+<script>
+$(function(){
+	// 예약페이지로
+	let reserveForm = $("<form></form>");
+	$('.reserve').on('click',function(e){
+		console.log(contextPath+"/reserve/form");
+		e.preventDefault();
+		reserveForm.append($(this).next());
+		reserveForm.attr("action",contextPath+"/reserve/form");
+		reserveForm.appendTo('body');
+		reserveForm.submit(); 
+	});
+})
+</script>		      				
 </body>
 </html>
 <%@include file="../layout/footer.jspf"%>

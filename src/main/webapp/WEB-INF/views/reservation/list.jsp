@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="layout/header.jspf"%>
+<%@include file="../layout/header.jspf"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,15 +72,17 @@ table td {
         		<th>체크인</th>
        			 <th>체크아웃</th>
 			</tr>
+			<c:forEach items="${reservationList}" var="r">
 			<tr>
-				<td>홍길동</td>
-				<td>010123456789</a></td>
-				<td>room1</td>
-			    <td>2명</td>
-			    <td>O</td>
-				<td>2022-10-01</td>
-				<td>2022-10-03</td>
+				<td>${r.memberName}</td>
+				<td>${r.phoneNumber}</td>
+				<td>${r.roomName}</td>
+			    <td>${r.addPerson}명</td>
+			    <td>${r.babekyu?'O':'X'}</td>
+				<td>${r.checkIn}</td>
+				<td>${r.checkOut}</td>
 			</tr>
+			</c:forEach>
 		</table>
 	</form>
 </div>
@@ -125,4 +127,4 @@ table td {
 <hr>
 </body>
 </html>
-<%@include file="layout/footer.jspf"%>
+<%@include file="../layout/footer.jspf"%>

@@ -120,7 +120,7 @@ footer {
 							<li><a href="<c:url value='/reserve/list'/>">예약확인</a></li>
 						</ul>
 					</li>
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+					<li><a href="<c:url value='/member/register'/>"><span class="glyphicon glyphicon-user"></span>
 							Sign Up</a>
 					</li>
 					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>

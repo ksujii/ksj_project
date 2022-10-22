@@ -44,7 +44,7 @@ public class BoardController {
 	@PostMapping("/register")
 	public String register(BoardVO board, RedirectAttributes rttr) {
 		service.register(board);
-		rttr.addFlashAttribute("message", board.getBno());
+		rttr.addFlashAttribute("message", board.getBno());//모델에 값을 담아 넘길건데 오브젝트 타입으로 넘긴다
 		return "redirect:list?category="+board.getCategory();
 	}
 	

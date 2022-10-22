@@ -1,5 +1,7 @@
 package com.ksj.model;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -20,4 +22,6 @@ public class RoomVO {
 	String facilities; // 구비시설
 	String weekDay; // 주중
 	String weekend; // 주말 
+	List<AttachVO> attachList; ///사진정보담기
+	
 }

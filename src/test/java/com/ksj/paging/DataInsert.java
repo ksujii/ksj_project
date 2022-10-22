@@ -22,12 +22,12 @@ public class DataInsert {
 	@Test
 	public void dataInsert() {
 		
-		for (int i = 1; i <= 212; i++) {
+		for (int i = 1; i <= 100; i++) {
 			BoardVO board = new BoardVO();
-			board.setTitle("페이징처리 제목"+i);
-			board.setContent("페이징처리 내용"+i);
-			board.setWriter("김병만");
-			board.setCategory("review");
+			board.setTitle("공지사항"+i);
+			board.setContent("공지하상 내용"+i);
+			board.setWriter("운영자");
+			board.setCategory("notice");
 			mapper.insert(board);
 		}
 	}

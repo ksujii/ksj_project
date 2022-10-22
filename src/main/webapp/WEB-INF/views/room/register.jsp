@@ -96,7 +96,7 @@ body {
 	            </tr> 
 	            <tr>
 	                <th>객실이미지</th>
-	                <td><input type="file" class="form-control"></td>        
+	                <td><input type="file" class="form-control" multiple="multiple" name="uploadFile"></td>        
 	            </tr>                        
 	             
 	            <tr>
@@ -133,9 +133,47 @@ body {
 <%@include file="../layout/footer.jspf"%>
 
 <script>
-let message="${message}";
-if(message!=''){
-	alert(message)	
-}
 
+
+let message="${message}";
+let maxSize = 5242880;//5MB
+let reges = new RegExp("(.*?)\.(exe|sh|zip|alz)$")
+function checkExtension(fileName,fileSize){
+	if(fileSize>=maxSize){
+		alert("파일 크기 초과")
+		return false;
+	}
+	if(reges.test(fileName)){
+		alert("해당종류의 파일은 업로드 할 수 없습니다.")
+		return false;
+	}
+	return true;
+}
+$(function(){
+	$('input[type="file"]').change(function(){
+		let formData = new FormData(); //파일목록 담음
+		let inputFile = $("input[name='uploadFile']"); //input객체 name이 업로드인 파일
+		let files = inputFile[0].files;//업로드된 파일 객체
+		for(let i=0; i<files.length; i++){
+			if(!checkExtension(files[i].name,files[i].size)){
+				return;
+			}
+			formData.append("uploadFile",files[i]) // 키, 실제값
+		}
+		
+		//에이젝스 호출
+		$.ajax({
+			url:contextPath + "/attach/fileUpload",
+			processData:false,
+			contentType:false,
+			data: formData,
+			type:"Post",
+			dataType:'json',
+			succes:function(result){
+				alert("성공")
+			}
+		})
+		
+	});
+})
 </script>

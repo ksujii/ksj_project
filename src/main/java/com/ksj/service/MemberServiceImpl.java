@@ -21,7 +21,7 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void memverRegister(MemberVO vo) {
+	public void memberRegister(MemberVO vo) {
 		mapper.register(vo);
 		
 	}

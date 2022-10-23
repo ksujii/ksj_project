@@ -7,5 +7,5 @@ import com.ksj.model.MemberVO;
 public interface MemberService {
 
 	List<MemberVO> Memberlist();
-	void memverRegister(MemberVO vo);
+	void memberRegister(MemberVO vo);
 }

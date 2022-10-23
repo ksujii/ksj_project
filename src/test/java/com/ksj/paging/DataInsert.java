@@ -22,7 +22,7 @@ public class DataInsert {
 	@Test
 	public void dataInsert() {
 		
-		for (int i = 1; i <= 100; i++) {
+		for (int i = 100; i <= 10; i++) {
 			BoardVO board = new BoardVO();
 			board.setTitle("공지사항"+i);
 			board.setContent("공지하상 내용"+i);

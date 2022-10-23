@@ -23,7 +23,7 @@ public class AttachController {
 	
 	@PostMapping("/fileUpload")
 	@ResponseBody
-	public void fileUpload(MultipartFile[] uploadFile) {
+	public List<AttachVO> fileUpload(MultipartFile[] uploadFile) {
 		
 		List<AttachVO> list = new ArrayList<AttachVO>();//첨부파일객체 리스트
 		File uploadPath = new File("C:/storage",getFolder());
@@ -41,7 +41,7 @@ public class AttachController {
 			uploadFileName=uuid.toString()+"_"+uploadFileName;
 			
 		 attachVo.setUuid(uploadFileName);//attachVo 객체에 uuid값 저장
-		 attachVo.setUploadPath(uploadFileName);//attachVo객체에 업로드 폴더 저장
+		 attachVo.setUploadPath(getFolder());//attachVo객체에 업로드 폴더 저장
 		 
 		 
 		
@@ -55,11 +55,12 @@ public class AttachController {
 			 }
 			 list.add(attachVo);//리스트에 추가
 			try {
-				mf.transferTo(saveFile);
+				//mf.transferTo(saveFile);
 			} catch (Exception e) {				
 				e.printStackTrace();
 			} 
 			}//파일업로드 실행
+		return list;//room/register
 		}
 
 	private boolean checkImageType(File file) {		//image/jpg

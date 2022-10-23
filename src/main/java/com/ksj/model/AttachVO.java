@@ -9,10 +9,10 @@ import lombok.ToString;
 @ToString
 public class AttachVO {
 
-	Long rno;
-	String uuid;
-	String uploadPath;
-	String fileName;
-	boolean fileType;
+	private Long rno;
+	private String uuid;
+	private String uploadPath;
+	private String fileName;
+	private boolean fileType;
 	
 }

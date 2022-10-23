@@ -3,14 +3,56 @@
 <mapper namespace="com.ksj.mapper.RoomMapper">
 
 	<insert id="register">
-	  	insert into room_tbl(roomName, standardNum, maximumNum, roomArea, 
-	  		roomForm, roomType, remarks, facilities, weekDay, weekend)
-		values(#{roomName}, #{standardNum}, #{maximumNum}, #{roomArea}, #{roomForm}, 
-			#{roomType}, #{remarks} #{facilities}, #{weekDay}, #{weekend})
+		<selectKey resultType="Long" keyProperty="rno" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+	  	insert into room_tbl(
+	  	roomName, 
+	  	standardNum, 
+	  	maximumNum, 
+	  	roomArea, 
+	  	roomForm, 
+	  	roomType, 
+	  	remarks, 
+	  	facilities, 
+	  	weekDay,
+	  	weekend
+	  	 )
+		values(
+		#{roomName}, 
+		#{standardNum}, 
+		#{maximumNum},	
+		#{roomArea}, 
+		#{roomForm}, 			
+		#{roomType}, 
+		#{remarks}, 
+		#{facilities}, 
+		#{weekDay}, 
+		#{weekend}
+		)
     </insert>
     
-	<select id="list" resultType="com.ksj.model.RoomVO">
+    <resultMap type="com.ksj.model.RoomVO" id="roomVo_result">
+    	<result property="rno" column="rno"/>
+    	<result property="roomName" column="roomName"/>
+    	<result property="standardNum" column="standardNum"/>
+    	<result property="maximumNum" column="maximumNum"/>
+    	<result property="roomArea" column="roomArea"/>
+    	<result property="roomForm" column="roomForm"/>
+    	<result property="roomType" column="roomType"/>
+    	<result property="remarks" column="remarks"/>
+    	<result property="facilities" column="facilities"/>
+    	<result property="weekDay" column="weekDay"/>
+    	<result property="weekend" column="weekend"/>
+    	<collection property="attachList" column="rno" javaType="java.util.ArrayList" ofType="com.ksj.model.AttachVO" select="attachList"/>
+    </resultMap>
+    
+	<select id="list" resultMap="roomVo_result">
 		select * from room_tbl
+	</select>
+	
+	<select id="attachList" resultType="com.ksj.model.AttachVO">
+		select * from attach_tbl where rno=#{rno} and fileType ='1'	
 	</select>
 	
 	<select id="getRoomNames" resultType="com.ksj.model.RoomVO">

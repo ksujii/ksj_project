@@ -6,7 +6,7 @@ import com.ksj.model.AttachVO;
 
 public interface AttachMapper {
 
-	void insert(AttachMapper vo);
+	void insert(AttachVO vo);
 	void delete(String uuid);
 	List<AttachVO> findByRno(Long rno);
 }

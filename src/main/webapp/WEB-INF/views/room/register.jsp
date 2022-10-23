@@ -25,7 +25,7 @@ body {
  	<div class="col-md-6 col-md-offset-3">
     	<h2 align="center"><b>객실등록</b></h2>
     	<hr>
-	    <form action='<c:url value="/room/register"/>' method="post">
+	    <form action='<c:url value="/room/register"/>' method="post" id="roomRegister" >
 	        <table class="table table-boardered">
 	        	<tr>
 	                <th>객실명</th>
@@ -149,7 +149,9 @@ function checkExtension(fileName,fileSize){
 	}
 	return true;
 }
+//첨부파일 업로드
 $(function(){
+	let attachList = null;
 	$('input[type="file"]').change(function(){
 		let formData = new FormData(); //파일목록 담음
 		let inputFile = $("input[name='uploadFile']"); //input객체 name이 업로드인 파일
@@ -163,17 +165,35 @@ $(function(){
 		
 		//에이젝스 호출
 		$.ajax({
-			url:contextPath + "/attach/fileUpload",
+			url:contextPath + "/attach/fileUpload",//attachcontroll 실행
 			processData:false,
 			contentType:false,
 			data: formData,
-			type:"Post",
+			type:"post",
 			dataType:'json',
-			succes:function(result){
-				alert("성공")
+			success:function(result){
+				attachList=result
 			}
 		})
 		
-	});
+	});//파일업로드 끝
+	
+	//객실등록처리
+	let registerForm = $('#roomRegister');
+	$('#roomRegister button').on('click',function(e){
+		e.preventDefault();//폼기본동작(action)금지
+		let inputTag = "";
+		$(attachList).each(function(i,obj){
+			inputTag += getInputTag("fileName",obj.fileName,i);	
+			inputTag += getInputTag("uuid",obj.uuid,i);
+			inputTag += getInputTag("uploadPath",obj.uploadPath,i);	
+			inputTag += getInputTag("fileType",obj.fileType,i);	
+		})		
+		registerForm.append(inputTag).submit();
+	})
+	function getInputTag(field,v,i){//input태그 생성
+		str = "<input type='hidden' name='attachList["+i+"]."+field+"' value='"+v+"'>";
+		return str
+	}
 })
 </script>

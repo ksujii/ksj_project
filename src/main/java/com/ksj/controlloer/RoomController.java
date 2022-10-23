@@ -24,18 +24,19 @@ public class RoomController {
 		return "room/register";
 	}
 	
-	//객실등록화면
+	//객실등록처리
 	@PostMapping("/register")
 	public String register(RoomVO vo,RedirectAttributes rttr) {
 		System.out.println("RoomController:register():"+vo);
-		rttr.addFlashAttribute("message", "객실등록을 완료하였습니다.");		
+		rttr.addFlashAttribute("message", "객실등록을 완료하였습니다.");	
 		service.register(vo);
-		return "redirect:register";
+		return "redirect:/room/register";//register
 	}
 	
 	//객실안내
 	@GetMapping("/list")
 	public String list(Model model){
+		System.out.println(service.list().get(0).getAttachList()); 
 		model.addAttribute("roomlist", service.list());
 		service.list();
 		return "room/list";

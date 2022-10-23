@@ -23,7 +23,7 @@ table {
  	<div class="col-md-6 col-md-offset-3">
     	<h2 align="center"><b>회원가입</b></h2>
     	<hr>
-	    <form action="${contextPath}/member/register" method="post">
+	    <form action="${contextPath}/member/register" method="post" >
 	        <table class="table table-boardered">
 	            <tr>
 	                <th>이름</th>
@@ -42,7 +42,7 @@ table {
 	            
 	            <tr>
 	                <th>전화번호</th>
-	                <td><input type="text" class="form-control" name="phoneNumber"></td>      
+	                <td><input type="text" class="form-control" name="phoneNumber" placeholder="- 빼고 입력해주세요"></td>      
 	            </tr>
 	             
 	            <tr>

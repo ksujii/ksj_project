@@ -20,12 +20,12 @@ public class MemberController {
 	
 	@GetMapping("/register")
 	public String registerFrom(MemberVO vo) {
-		return "member/register";
+		return "/member/register";
 	}
 	
 	@PostMapping("/register")
 	public String register(MemberVO vo,RedirectAttributes rttr) {
-		service.memverRegister(vo);
+		service.memberRegister(vo);
 		return "redirect:/";
 	}
 	@GetMapping("/list")

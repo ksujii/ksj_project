@@ -1,5 +1,7 @@
 package com.ksj.controlloer;
 
+import java.net.URLEncoder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,9 +30,16 @@ public class MemberController {
 		service.memberRegister(vo);
 		return "redirect:/";
 	}
-	@GetMapping("/list")
+	
+
+	@GetMapping("/list")//회원관리(관리자)
 	public String registerFrom(Model model) {
 		model.addAttribute("memberList",service.Memberlist());
 		return "member/memberList";
+	}
+	
+	@GetMapping("/login")
+	public String loginFrom(MemberVO vo) {
+		return "/member/login";
 	}
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원관리(관리자)</title>
+<title>Insert title here</title>
 <style>
  table {
 	margin: auto;
@@ -54,39 +54,39 @@ table td {
     vertical-align: top;
     border-bottom: 1px solid #ccc;
 }
-</style> 
+</style>
 
 </head>
 <body>
 <hr>
- <div class="container">
-	<h2><b>회원관리</b></h2>
+<div class="container">
+	<h2><b>예약확인(관리자)</b></h2>
 	<hr>
 <form>
 		<table class="table table-hover">
 			<tr class="active">
 				<th>이름</th>
-				<th>아이디</th>
-				<th>비밀번호</th>
 				<th>전화번호</th>
-				<th>이메일</th>
-        		<th>가입시간</th>
-       			<th>수정시간</th>
+				<th>객실</th>
+				<th>추가인원</th>
+				<th>바베큐</th>
+        		<th>체크인</th>
+       			 <th>체크아웃</th>
 			</tr>
-		 <c:forEach items="${memberList}" var="m">
+			<c:forEach items="${reservationList}" var="r">
 			<tr>
-				<td>${m.memberName}</td>
-				<td>${m.memberId}</td>
-				<td>${m.password}</td>
-				<td>${m.phoneNumber}</td>
-			    <td>${m.email}</td>  
-				<td><fmt:formatDate value="${m.regDate}" pattern="yyyy-MM-dd" /></td>
-				<td><fmt:formatDate value="${m.updateDate}" pattern="yyyy-MM-dd" /></td>
+				<td>${r.memberName}</td>
+				<td>${r.phoneNumber}</td>
+				<td>${r.roomName}</td>
+			    <td>${r.addPerson}명</td>
+			    <td>${r.babekyu?'O':'X'}</td>
+				<td>${r.checkIn}</td>
+				<td>${r.checkOut}</td>
 			</tr>
-			</c:forEach> 
+			</c:forEach>
 		</table>
 	</form>
-</div> 
+</div>
 <hr>
 </body>
 </html>

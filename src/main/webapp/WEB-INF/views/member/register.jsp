@@ -27,17 +27,21 @@ table {
 	        <table class="table table-boardered">
 	            <tr>
 	                <th>이름</th>
-	                <td><input type="text" class="form-control"  name="memberName"></td>        
+	                <td><input type="text" class="form-control"  id="memberName" name="memberName"></td>        
 	            </tr>
 	            
 	            <tr>
 	                <th>아이디</th>
-	                <td><input type="text" class="form-control"   name="memberId"></td>        
+	                <td><input type="text" class="form-control"  id="memberId" name="memberId"></td>        
 	            </tr>
 	            
 	            <tr>
 	                <th>비밀번호</th>
 	                <td><input type="password" class="form-control"   name="password"></td>        
+	            </tr>
+	            <tr>
+	                <th>비밀번호확인</th>
+	                <td><input type="password" class="form-control"   name="password2"></td>        
 	            </tr>
 	            
 	            <tr>
@@ -59,6 +63,9 @@ table {
 	    </form>
     </div>
 </div>
+
 </body>
 </html>
+
+
 <%@include file="../layout/footer.jspf"%>

@@ -35,7 +35,7 @@ public class BoardController {
 		return "board/get";
 	}
 	
-	@GetMapping("/register") //등록화면
+	@GetMapping("/register") 
 	public String registerForm() {
 		return "board/register";
 	}
@@ -44,7 +44,7 @@ public class BoardController {
 	@PostMapping("/register")
 	public String register(BoardVO board, RedirectAttributes rttr) {
 		service.register(board);
-		rttr.addFlashAttribute("message", board.getBno());//모델에 값을 담아 넘길건데 오브젝트 타입으로 넘긴다
+		rttr.addFlashAttribute("message", board.getBno());
 		return "redirect:list?category="+board.getCategory();
 	}
 	
@@ -57,7 +57,7 @@ public class BoardController {
 	public String modify(BoardVO board, RedirectAttributes rttr) {
 		service.modify(board);
 		rttr.addFlashAttribute("message", board.getBno());
-		return "redirect:list";
+		return "redirect:get?bno="+board.getBno();
 	}
 	
 	@PostMapping("/remove")

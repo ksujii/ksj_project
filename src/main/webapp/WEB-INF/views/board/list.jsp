@@ -65,10 +65,8 @@ hr {
 						<td>${b.bno }</td>
 						<td><a href="get?bno=${b.bno}"> ${b.title } </a></td> 
 						<td>${b.writer }</td>
-						<td><fmt:formatDate value="${b.regDate}" pattern="yyyy-MM-dd" />
-						</td>
-						<td><fmt:formatDate value="${b.updateDate}"
-								pattern="yyyy-MM-dd" /></td>
+						<td><fmt:formatDate value="${b.regDate}" pattern="yyyy-MM-dd" /></td>
+						<td><fmt:formatDate value="${b.updateDate}" pattern="yyyy-MM-dd" /></td>
 					</tr>
 				</c:forEach>
 			</c:if>

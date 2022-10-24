@@ -58,37 +58,11 @@ table td {
 
 </head>
 <body>
+<hr>
 <div class="container">
-	<h2><b>예약확인(관리자)</b></h2>
+	<h2><b>예약확인(고객)</b></h2>
 	<hr>
 <form>
-		<table class="table table-hover">
-			<tr class="active">
-				<th>이름</th>
-				<th>전화번호</th>
-				<th>객실</th>
-				<th>추가인원</th>
-				<th>바베큐</th>
-        		<th>체크인</th>
-       			 <th>체크아웃</th>
-			</tr>
-			<c:forEach items="${reservationList}" var="r">
-			<tr>
-				<td>${r.memberName}</td>
-				<td>${r.phoneNumber}</td>
-				<td>${r.roomName}</td>
-			    <td>${r.addPerson}명</td>
-			    <td>${r.babekyu?'O':'X'}</td>
-				<td>${r.checkIn}</td>
-				<td>${r.checkOut}</td>
-			</tr>
-			</c:forEach>
-		</table>
-	</form>
-</div>
-
-<h2><b>예약확인(고객)</b></h2>
-	<hr>
 <table>
     <thead>
     <tr>
@@ -119,10 +93,13 @@ table td {
     </tr>
     </tbody>
 </table>
+</form>
+
 <hr>
 		<div>
 			<button class="btn btn-primary">확인</button>
       		<button class="btn btn-primary">취소</button>
+		</div>
 		</div>
 <hr>
 </body>

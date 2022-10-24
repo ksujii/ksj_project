@@ -43,11 +43,22 @@ public class ReservationController {
 	}
 	
 	//예약확인(관리자)
-	@GetMapping("/list")
-	public String list(Model model) {
+	@GetMapping("/listA")
+	public String listAdmin(Model model) {
 		model.addAttribute("reservationList", service.reserveList());
-		return "reservation/list";
+		return "reservation/listA";
 	}
+	
+	//예약확인(고객)
+		@GetMapping("/registerC")
+		public String listForm() {
+			return "reservation/registerC";
+		}
+		
+		@PostMapping("/listC")
+		public String listCustomer() {
+			return "reservation/listC";
+		}
 	
 
 }

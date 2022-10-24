@@ -108,33 +108,11 @@ body {
 	    </form>
     </div><!--  -->
 </div>
-
- 
 <hr>
-<div class="container">
-	<div class="col-md-6 col-md-offset-3">
-   <h2 align="center"><b>예약확인</b></h2><p>
-    <hr>
-		<form>
-			<div class="form-group">
-				<input type="text"  placeholder="이름" class="form-control">
-			</div>
-			<div class="form-group">
-				<input type="text" placeholder="전화번호" class="form-control">
-			</div><hr>
-			<div class="form-group">
-				<button class="btn btn-primary">확인하기</button>
-			</div>
-		
-		</form>
-	</div>
-</div>
 <hr><hr>
 <%@include file="../layout/footer.jspf"%>
 
 <script>
-
-
 let message="${message}";
 let maxSize = 5242880;//5MB
 let reges = new RegExp("(.*?)\.(exe|sh|zip|alz)$")
@@ -176,8 +154,7 @@ $(function(){
 			}
 		})
 		
-	});//파일업로드 끝
-	
+	});//파일업로드 끝	
 	//객실등록처리
 	let registerForm = $('#roomRegister');
 	$('#roomRegister button').on('click',function(e){
